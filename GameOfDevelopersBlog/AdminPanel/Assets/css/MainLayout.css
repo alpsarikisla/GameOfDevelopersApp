@@ -1,0 +1,79 @@
+﻿*, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Calibri
+}
+
+.header {
+    min-height: 40px;
+    color: white;
+    padding: 10px;
+}
+
+/* Color Theme Swatches in Hex */
+.Crevasse-1 {
+    background-color: #dedede;
+}
+
+.Crevasse-2 {
+    background-color: #DEEFE7;
+}
+
+.Crevasse-3 {
+    background-color: #002333;
+}
+
+.Crevasse-4 {
+    background-color: #159A9C;
+}
+
+.Crevasse-5 {
+    background-color: #B4BEC9;
+}
+
+.pagetitle {
+    float: left;
+}
+
+.userPanel {
+    width: 250px;
+    float: right;
+    margin-top: 9px;
+}
+
+#lbtn_cikis {
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.sidebar {
+    display: block;
+    width: 250px;
+    height: 700px;
+    float: left;
+    padding-top:20px;
+}
+
+    .sidebar .menuItem {
+        border-bottom: 1px solid #B4BEC9;
+        padding:10px;
+    }
+        .sidebar .menuItem:hover
+        {
+            background-color:#B4BEC9;
+        }
+
+        .sidebar a {
+            color: #002333;
+            text-decoration: none;
+        }
+            .contentContainer {
+                min-height: 500px;
+                float: left;
+                width: 70%;
+                padding: 10px;
+            }

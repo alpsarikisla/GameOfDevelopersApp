@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="GameOfDevelopersBlog.AdminPanel.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>GOD Panel</title>
+    <link href="Assets/css/MainLayout.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="header Crevasse-3">
+            <h1 class="pagetitle">GOD Panel</h1>
+            <div class="userPanel">
+                <label>Merhaba Useyin</label>
+                <asp:LinkButton ID="lbtn_cikis" runat="server">Çıkış</asp:LinkButton>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+        <div>
+            <div class="sidebar Crevasse-1">
+                <a href="Default.aspx">
+                    <div class="menuItem">
+                        Anasayfa
+                    </div>
+                </a>
+                <a href="KategoriEkle.aspx">
+                    <div class="menuItem">
+                        Kategori Ekle
+                    </div>
+                </a>
+                <a href="KategoriEkle.aspx">
+                    <div class="menuItem">
+                        Makale Listele
+                    </div>
+                </a>
+                <a href="KategoriEkle.aspx">
+                    <div class="menuItem">
+                        Makale Ekle
+                    </div>
+                </a>
+                 <a href="KategoriEkle.aspx">
+                    <div class="menuItem">
+                        Yorum İşlemleri
+                    </div>
+                </a>
+                 <a href="KategoriEkle.aspx">
+                    <div class="menuItem">
+                        Üye İşlemleri
+                    </div>
+                </a>
+            </div>
+            <div class="contentContainer">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>

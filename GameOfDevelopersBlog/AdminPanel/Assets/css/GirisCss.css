@@ -1,0 +1,44 @@
+﻿*, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+}
+
+html,body {
+    font-family: Calibri;
+    height: 100%;
+    background-image:url(../Images/office-ged2721960_1920.jpg);
+}
+
+
+
+.container {
+    height: 100%;
+    float: right;
+    width: 30%;
+    box-shadow: -8px 1px 5px -3px rgba(0,0,0,0.53);
+    -webkit-box-shadow: -8px 1px 5px -3px rgba(0,0,0,0.53);
+    -moz-box-shadow: -8px 1px 5px -3px rgba(0,0,0,0.53);
+   background-color:white;
+}
+.loginBox {
+    margin-top: 200px;
+    padding: 20px;
+}
+.inputBox
+{
+    padding:7px;
+    border:1px solid silver;
+    width:400px;
+    border-radius:3px;
+}
+.loginButton {
+    display:block;
+    width: 385px;
+    padding: 15px;
+    color: white;
+    background-color: #002333;
+    border-radius: 3px;
+    text-align:center;
+    text-decoration:none;
+    font-weight:900;
+}
