@@ -77,3 +77,69 @@ body {
                 width: 70%;
                 padding: 10px;
             }
+.formContainer
+{
+    
+}
+.formTitle {
+    padding: 10px 20px;
+    background-color: #ededed;
+    border: 1px solid silver;
+    border-bottom: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.formContent {
+    padding: 20px;
+    border: 1px solid silver;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    z-index:14
+}
+.inputBox {
+    padding: 7px;
+    border: 1px solid silver;
+    width: 400px;
+    border-radius: 3px;
+}
+.formbutton
+{
+    padding:10px 25px;
+    background-color:hotpink;
+    color:white;
+    border:1px solid deeppink;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight:900;
+}
+    .formbutton:hover
+    {
+        background-color:deeppink;
+        
+    }
+    .row {
+        padding: 10px 0;
+    }
+.basarili {
+    background-color: #d4fca7;
+    color: #1d7105;
+    padding: 20px;
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    -webkit-box-shadow: inset 0px 15px 5px -7px rgba(0,0,0,0.34);
+    -moz-box-shadow: inset 0px 15px 5px -7px rgba(0,0,0,0.34);
+    box-shadow: inset 0px 15px 5px -7px rgba(0,0,0,0.34);
+}
+.basarisiz {
+    background-color: #febfbf;
+    color: red;
+    padding: 20px;
+    margin-top: -20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    -webkit-box-shadow: inset 0px 15px 5px -7px rgba(0,0,0,0.34);
+    -moz-box-shadow: inset 0px 15px 5px -7px rgba(0,0,0,0.34);
+    box-shadow: inset 0px 15px 5px -7px rgba(0,0,0,0.34);
+}
+

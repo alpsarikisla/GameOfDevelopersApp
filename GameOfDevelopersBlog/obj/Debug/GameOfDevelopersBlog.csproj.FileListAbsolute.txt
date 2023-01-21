@@ -57,3 +57,5 @@ C:\Users\303\source\repos\GameOfDevelopersBlog\GameOfDevelopersBlog\obj\Debug\Ga
 C:\Users\303\source\repos\GameOfDevelopersBlog\GameOfDevelopersBlog\obj\Debug\GameOfDevelopersBlog.csproj.CopyComplete
 C:\Users\303\source\repos\GameOfDevelopersBlog\GameOfDevelopersBlog\obj\Debug\GameOfDevelopersBlog.dll
 C:\Users\303\source\repos\GameOfDevelopersBlog\GameOfDevelopersBlog\obj\Debug\GameOfDevelopersBlog.pdb
+C:\Users\303\source\repos\GameOfDevelopersBlog\GameOfDevelopersBlog\bin\DataAccessLayer.dll
+C:\Users\303\source\repos\GameOfDevelopersBlog\GameOfDevelopersBlog\bin\DataAccessLayer.pdb

@@ -70,6 +70,7 @@
     <Content Include="AdminPanel\AdminGiris.aspx" />
     <Content Include="AdminPanel\Assets\css\GirisCss.css" />
     <Content Include="AdminPanel\Assets\css\MainLayout.css" />
+    <Content Include="AdminPanel\Assets\Images\god1.jpg" />
     <Content Include="AdminPanel\Assets\Images\office-ged2721960_1920.jpg" />
     <Content Include="AdminPanel\Default.aspx" />
     <Content Include="AdminPanel\KategoriEkle.aspx" />
@@ -115,6 +116,12 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{c7dd5fac-be5a-4210-aca1-22649f51fcf7}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

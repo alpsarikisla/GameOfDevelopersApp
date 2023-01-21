@@ -5,6 +5,8 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfDevelopersBlog", "GameOfDevelopersBlog\GameOfDevelopersBlog.csproj", "{6B555470-CB27-436E-981A-135860B3F6AA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{C7DD5FAC-BE5A-4210-ACA1-22649F51FCF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6B555470-CB27-436E-981A-135860B3F6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B555470-CB27-436E-981A-135860B3F6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B555470-CB27-436E-981A-135860B3F6AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7DD5FAC-BE5A-4210-ACA1-22649F51FCF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7DD5FAC-BE5A-4210-ACA1-22649F51FCF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7DD5FAC-BE5A-4210-ACA1-22649F51FCF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7DD5FAC-BE5A-4210-ACA1-22649F51FCF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
