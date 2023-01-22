@@ -24,6 +24,7 @@ namespace GameOfDevelopersBlog.AdminPanel
                 {
                     Kategori k = new Kategori();
                     k.Isim = tb_isim.Text;
+                    k.Silinmis = false;
                     if (dm.KategoriEkle(k))
                     {
                         pnl_basarili.Visible = true;

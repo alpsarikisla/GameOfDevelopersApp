@@ -55,32 +55,33 @@ body {
     width: 250px;
     height: 700px;
     float: left;
-    padding-top:20px;
+    padding-top: 20px;
 }
 
     .sidebar .menuItem {
         border-bottom: 1px solid #B4BEC9;
-        padding:10px;
+        padding: 10px;
     }
-        .sidebar .menuItem:hover
-        {
-            background-color:#B4BEC9;
+
+        .sidebar .menuItem:hover {
+            background-color: #B4BEC9;
         }
 
-        .sidebar a {
-            color: #002333;
-            text-decoration: none;
-        }
-            .contentContainer {
-                min-height: 500px;
-                float: left;
-                width: 70%;
-                padding: 10px;
-            }
-.formContainer
-{
-    
+    .sidebar a {
+        color: #002333;
+        text-decoration: none;
+    }
+
+.contentContainer {
+    min-height: 500px;
+    float: left;
+    width: 70%;
+    padding: 10px;
 }
+
+.formContainer {
+}
+
 .formTitle {
     padding: 10px 20px;
     background-color: #ededed;
@@ -89,37 +90,40 @@ body {
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
+
 .formContent {
     padding: 20px;
     border: 1px solid silver;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    z-index:14
+    z-index: 14
 }
+
 .inputBox {
     padding: 7px;
     border: 1px solid silver;
     width: 400px;
     border-radius: 3px;
 }
-.formbutton
-{
-    padding:10px 25px;
-    background-color:hotpink;
-    color:white;
-    border:1px solid deeppink;
-    border-radius:5px;
-    text-decoration:none;
-    font-weight:900;
+
+.formbutton {
+    padding: 10px 25px;
+    background-color: hotpink;
+    color: white;
+    border: 1px solid deeppink;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 900;
 }
-    .formbutton:hover
-    {
-        background-color:deeppink;
-        
+
+    .formbutton:hover {
+        background-color: deeppink;
     }
-    .row {
-        padding: 10px 0;
-    }
+
+.row {
+    padding: 10px 0;
+}
+
 .basarili {
     background-color: #d4fca7;
     color: #1d7105;
@@ -131,6 +135,7 @@ body {
     -moz-box-shadow: inset 0px 15px 5px -7px rgba(0,0,0,0.34);
     box-shadow: inset 0px 15px 5px -7px rgba(0,0,0,0.34);
 }
+
 .basarisiz {
     background-color: #febfbf;
     color: red;
@@ -143,3 +148,41 @@ body {
     box-shadow: inset 0px 15px 5px -7px rgba(0,0,0,0.34);
 }
 
+.tablo {
+    border: 1px solid silver;
+    width: 100%;
+}
+    .tablo thead tr {
+        background-color: #dedede;
+    }
+        .tablo thead tr th {
+            padding: 7px;
+            margin: 0px;
+            color: #002333;
+        }
+    .tablo tbody tr {
+        border:1px solid silver;
+    }
+        .tablo tbody tr td {
+            padding: 7px;
+            margin: 0px;
+            text-align: center;
+            border-bottom: 1px solid silver;
+        }
+            .tablo tbody tr td .duzenle {
+                padding: 3px 7px;
+                background-color:#076089;
+                color: white;
+                border-radius: 4px;
+                margin: 7px 1px;
+                text-decoration: none;
+            }
+            .tablo tbody tr td .sil {
+                padding: 3px 17px;
+                background-color: red;
+                color: white;
+                border-radius: 4px;
+                margin: 7px 1px;
+                text-decoration: none;
+                font-weight:900;
+            }

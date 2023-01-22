@@ -10,5 +10,6 @@ namespace DataAccessLayer
     {
         public int ID { get; set; }
         public string Isim { get; set; }
+        public bool Silinmis { get; set; }
     }
 }

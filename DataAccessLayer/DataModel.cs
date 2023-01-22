@@ -47,7 +47,7 @@ namespace DataAccessLayer
                         y.Soyisim = reader.GetString(3);
                         y.KullaniciAdi = reader.GetString(4);
                         y.Sifre = reader.GetString(5);
-                        y.Mail= reader.GetString(6);
+                        y.Mail = reader.GetString(6);
                         y.Durum = reader.GetBoolean(7);
                         y.YoneticiTur = reader.GetString(8);
                     }
@@ -55,11 +55,12 @@ namespace DataAccessLayer
                 }
                 else
                 {
-                    return null ;
+                    return null;
                 }
 
             }
-            catch {
+            catch
+            {
                 return null;
             }
             finally { con.Close(); }
@@ -106,6 +107,131 @@ namespace DataAccessLayer
             finally { con.Close(); }
         }
 
+        public List<Kategori> KategoriListele()
+        {
+            List<Kategori> kategoriler = new List<Kategori>();
+            try
+            {
+                cmd.CommandText = "SELECT * FROM Kategoriler WHERE Silinmis = 0";
+                cmd.Parameters.Clear();
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Kategori k = new Kategori();
+                    k.ID = reader.GetInt32(0);
+                    k.Isim = reader.GetString(1);
+                    k.Silinmis = reader.GetBoolean(2);
+                    kategoriler.Add(k);
+                }
+                return kategoriler;
+            }
+            catch
+            {
+                return null;
+            }
+            finally { con.Close(); }
+        }
+
+        public bool KategoriGuncelle(Kategori kat)
+        {
+            try
+            {
+                cmd.CommandText = "UPDATE Kategoriler SET Isim = @isim WHERE ID=@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", kat.ID);
+                cmd.Parameters.AddWithValue("@isim", kat.Isim);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally { con.Close(); }
+        }
+
+        //public void KategoriSil(int id)
+        //{
+        //    try
+        //    {
+        //        cmd.CommandText = "DELETE FROM Kategoriler WHERE ID=@id";
+        //        cmd.Parameters.Clear();
+        //        cmd.Parameters.AddWithValue("@id", id);
+        //        con.Open();
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //    finally { con.Close(); }
+        //}
+        public void KategoriSil(int id)
+        {
+            try
+            {
+                cmd.CommandText = "UPDATE Kategoriler SET Silinmis = 1 WHERE ID=@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+            finally { con.Close(); }
+        }
+
+        public Kategori KategoriGetir(int id)
+        {
+            try
+            {
+                Kategori k = new Kategori();
+                cmd.CommandText = "SELECT * FROM Kategoriler WHERE ID=@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    k.ID = reader.GetInt32(0);
+                    k.Isim = reader.GetString(1);
+                    k.Silinmis = reader.GetBoolean(2);
+                }
+                return k;
+            }
+            catch
+            { return null; }
+            finally { con.Close(); }
+        }
+        #endregion
+
+        #region Makale Metotları
+
+        public bool MakaleEkle(Makale mak)
+        {
+            try
+            {
+                cmd.CommandText = "INSERT INTO Makaleler(Kategori_ID, Yonetici_ID, Baslik, Ozet, Icerik, Resim, GoruntulemeSayisi, EklemeTarihi, BegeniSayisi, Yayinda) VALUES(@kategori_ID, @yonetici_ID, @baslik, @ozet, @icerik, @resim, @goruntulemeSayisi, @eklemeTarihi, @begeniSayisi, @yayinda)";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@kategori_ID", mak.Kategori_ID);
+                cmd.Parameters.AddWithValue("@yonetici_ID", mak.Yonetici_ID);
+                cmd.Parameters.AddWithValue("@baslik", mak.Baslik);
+                cmd.Parameters.AddWithValue("@ozet", mak.Ozet);
+                cmd.Parameters.AddWithValue("@icerik", mak.Icerik);
+                cmd.Parameters.AddWithValue("@resim", mak.Resim);
+                cmd.Parameters.AddWithValue("@goruntulemeSayisi", mak.GoruntulemeSayisi);
+                cmd.Parameters.AddWithValue("@eklemeTarihi", mak.EklemeTarih);
+                cmd.Parameters.AddWithValue("@begeniSayisi", mak.BegeniSayisi);
+                cmd.Parameters.AddWithValue("@yayinda", mak.Yayinda);
+                con.Open();
+                cmd.ExecuteReader();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         #endregion
 
 
@@ -115,7 +241,7 @@ namespace DataAccessLayer
         {
             try
             {
-                cmd.CommandText = "SELECT COUNT(*) FROM " + tablo+ " WHERE "+kolon+" = @isim";
+                cmd.CommandText = "SELECT COUNT(*) FROM " + tablo + " WHERE " + kolon + " = @isim";
                 cmd.Parameters.Clear();
                 cmd.Parameters.AddWithValue("@isim", veri);
                 con.Open();

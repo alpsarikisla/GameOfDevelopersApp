@@ -26,6 +26,11 @@
                         Anasayfa
                     </div>
                 </a>
+                <a href="KategoriListele.aspx">
+                    <div class="menuItem">
+                        Kategori Listele
+                    </div>
+                </a>
                 <a href="KategoriEkle.aspx">
                     <div class="menuItem">
                         Kategori Ekle
@@ -36,7 +41,7 @@
                         Makale Listele
                     </div>
                 </a>
-                <a href="KategoriEkle.aspx">
+                <a href="MakaleEkle.aspx">
                     <div class="menuItem">
                         Makale Ekle
                     </div>
