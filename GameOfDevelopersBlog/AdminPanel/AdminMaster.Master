@@ -36,7 +36,7 @@
                         Kategori Ekle
                     </div>
                 </a>
-                <a href="KategoriEkle.aspx">
+                <a href="MakaleListele.aspx">
                     <div class="menuItem">
                         Makale Listele
                     </div>
@@ -64,5 +64,9 @@
         </div>
 
     </form>
+    <script src="Assets/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('ContentPlaceHolder1_tb_icerik');
+    </script>
 </body>
 </html>

@@ -232,6 +232,118 @@ namespace DataAccessLayer
                 con.Close();
             }
         }
+       
+        public List<Makale> MakaleListele()
+        {
+            try
+            {
+                List<Makale> Makaleler = new List<Makale>();
+                cmd.CommandText = "SELECT M.ID, M.Kategori_ID, K.Isim, M.Yonetici_ID, Y.KullaniciAdi, M.Baslik, M.Ozet, M.Icerik, M.Resim, M.GoruntulemeSayisi, M.EklemeTarihi, M.BegeniSayisi, M.Yayinda FROM Makaleler AS M JOIN Kategoriler AS K ON M.Kategori_ID = K.ID JOIN Yoneticiler AS Y ON M.Yonetici_ID = Y.ID";
+                cmd.Parameters.Clear();
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Makale m = new Makale();
+                    m.ID = reader.GetInt32(0);
+                    m.Kategori_ID = reader.GetInt32(1);
+                    m.Kategori = reader.GetString(2);
+                    m.Yonetici_ID = reader.GetInt32(3);
+                    m.Yonetici = reader.GetString(4);
+                    m.Baslik = reader.GetString(5);
+                    m.Ozet = reader.GetString(6);
+                    m.Icerik = reader.GetString(7);
+                    m.Resim = reader.GetString(8);
+                    m.GoruntulemeSayisi = reader.GetInt32(9);
+                    m.EklemeTarih = reader.GetDateTime(10);
+                    m.EklemeTarihStr = reader.GetDateTime(10).ToShortDateString();
+                    m.BegeniSayisi = reader.GetInt32(11);
+                    m.Yayinda = reader.GetBoolean(12);
+                    m.YayindaStr = reader.GetBoolean(12) ? "<label style='color:green'>Aktif</label>" : "<label style='color:gray'>Pasif</label>";
+                    Makaleler.Add(m);
+                }
+                return Makaleler;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public Makale MakaleGetir(int id)
+        {
+            try
+            {
+                cmd.CommandText = "SELECT M.ID, M.Kategori_ID, K.Isim, M.Yonetici_ID, Y.KullaniciAdi, M.Baslik, M.Ozet, M.Icerik, M.Resim, M.GoruntulemeSayisi, M.EklemeTarihi, M.BegeniSayisi, M.Yayinda FROM Makaleler AS M JOIN Kategoriler AS K ON M.Kategori_ID = K.ID JOIN Yoneticiler AS Y ON M.Yonetici_ID = Y.ID WHERE M.ID = @id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                Makale m = new Makale();
+                while (reader.Read())
+                {
+                    m.ID = reader.GetInt32(0);
+                    m.Kategori_ID = reader.GetInt32(1);
+                    m.Kategori = reader.GetString(2);
+                    m.Yonetici_ID = reader.GetInt32(3);
+                    m.Yonetici = reader.GetString(4);
+                    m.Baslik = reader.GetString(5);
+                    m.Ozet = reader.GetString(6);
+                    m.Icerik = reader.GetString(7);
+                    m.Resim = reader.GetString(8);
+                    m.GoruntulemeSayisi = reader.GetInt32(9);
+                    m.EklemeTarih = reader.GetDateTime(10);
+                    m.EklemeTarihStr = reader.GetDateTime(10).ToShortDateString();
+                    m.BegeniSayisi = reader.GetInt32(11);
+                    m.Yayinda = reader.GetBoolean(12);
+                    m.YayindaStr = reader.GetBoolean(12) ? "<label style='color:green'>Aktif</label>" : "<label style='color:gray'>Pasif</label>";
+                }
+                return m;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public bool MakaleDuzenle(Makale m)
+        {
+            try
+            {
+                cmd.CommandText = "UPDATE Makaleler SET Baslik = @baslik, Kategori_ID=kategori_ID, Ozet=@ozet, Icerik=@icerik, Resim=@resim, Yayinda=@yayinda WHERE ID=@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", m.ID);
+                cmd.Parameters.AddWithValue("@baslik", m.Baslik);
+                cmd.Parameters.AddWithValue("@kategori_ID", m.Kategori_ID);
+                cmd.Parameters.AddWithValue("@ozet", m.Ozet);
+                cmd.Parameters.AddWithValue("@icerik", m.Icerik);
+                cmd.Parameters.AddWithValue("@resim", m.Resim);
+                cmd.Parameters.AddWithValue("@yayinda", m.Yayinda);
+
+                con.Open();
+
+                cmd.ExecuteNonQuery();
+                return true;
+             
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         #endregion
 
 

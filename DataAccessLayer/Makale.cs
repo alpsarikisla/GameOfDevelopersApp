@@ -19,8 +19,10 @@ namespace DataAccessLayer
         public string Resim { get; set; }
         public int GoruntulemeSayisi { get; set; }
         public DateTime EklemeTarih { get; set; }
+        public string EklemeTarihStr { get; set; }
         public int BegeniSayisi { get; set; }
         public bool Yayinda { get; set; }
+        public string YayindaStr { get; set; }
 
     }
 }
