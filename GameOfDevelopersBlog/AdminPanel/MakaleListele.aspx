@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h3>Makale Listesi</h3>
     <div>
-        <asp:ListView ID="lv_makaleler" runat="server">
+        <asp:ListView ID="lv_makaleler" runat="server" OnItemCommand="lv_makaleler_ItemCommand">
             <LayoutTemplate>
                 <table class="tablo" cellpaddind="0" cellspacing="0">
                     <thead>

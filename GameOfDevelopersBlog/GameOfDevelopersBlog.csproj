@@ -390,6 +390,7 @@
     <Content Include="AdminPanel\MakaleDuzenle.aspx" />
     <Content Include="AdminPanel\MakaleEkle.aspx" />
     <Content Include="AdminPanel\MakaleListele.aspx" />
+    <Content Include="AdminPanel\YorumListele.aspx" />
     <Content Include="MakaleResimleri\242d11b4-334a-4c32-bd9b-2d49f8734d46.jpg" />
     <Content Include="MakaleResimleri\352cc984-0fb0-4e13-9406-7b3b82ce97c8.jpg" />
     <Content Include="MakaleResimleri\67f1c553-bfd9-4929-9ffe-4b71f9e5b45d.jpg" />
@@ -462,6 +463,13 @@
       <DependentUpon>MakaleListele.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminPanel\Yardimci.cs" />
+    <Compile Include="AdminPanel\YorumListele.aspx.cs">
+      <DependentUpon>YorumListele.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPanel\YorumListele.aspx.designer.cs">
+      <DependentUpon>YorumListele.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

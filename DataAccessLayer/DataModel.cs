@@ -344,8 +344,74 @@ namespace DataAccessLayer
                 con.Close();
             }
         }
+
+        public bool MakaleSil(int id)
+        {
+            try
+            {
+                cmd.CommandText = "DELETE Yorumlar WHERE Makale_ID = @id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                cmd.CommandText = "DELETE Makaleler WHERE ID = @id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         #endregion
 
+        #region Yorum Metotları
+
+        public List<Yorum> YorumlariListele()
+        {
+            List<Yorum> yorumlar = new List<Yorum>();
+            try
+            {
+                cmd.CommandText = "SELECT Y.ID, Y.Makale_ID, M.Baslik, Y.Yonetici_ID, YY.KullaniciAdi, Y.Uye_ID, U.KullaniciAdi, U.Isim +' '+ U.Soyisim, Y.Icerik, Y.Onay FROM Yorumlar AS Y JOIN Makaleler AS M ON Y.Makale_ID = M.ID JOIN Yoneticiler AS YY ON Y.Yonetici_ID = YY.ID JOIN Uyeler AS U ON Y.Uye_ID = U.ID";
+                cmd.Parameters.Clear();
+                con.Open();
+
+                SqlDataReader reader= cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    yorumlar.Add(new Yorum()
+                    {
+                        ID = reader.GetInt32(0),
+                        Makale_ID = reader.GetInt32(1),
+                        Makale = reader.GetString(2),
+                        Yonetici_ID = reader.GetInt32(3),
+                        Yonetici = reader.GetString(4),
+                        Uye_ID = reader.GetInt32(5),
+                        Uye = reader.GetString(7) + "(" + reader.GetString(6) + ")",
+                        Icerik = reader.GetString(8),
+                        Onay = reader.GetBoolean(9)
+                    });
+                }
+                return yorumlar;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        #endregion
 
         #region Yardımcılar
 

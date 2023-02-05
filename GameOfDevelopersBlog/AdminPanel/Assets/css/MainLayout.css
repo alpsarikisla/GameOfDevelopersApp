@@ -57,19 +57,36 @@ body {
     float: left;
     padding-top: 20px;
 }
+.dropdown-container
+{
+    display:none;
+}
+.dropdown-btn {
+    font-weight: 900;
+}
+.sidebar .menuItem {
+    border-bottom: 1px solid #B4BEC9;
+    padding: 10px;
 
-    .sidebar .menuItem {
-        border-bottom: 1px solid #B4BEC9;
-        padding: 10px;
-    }
+}
 
         .sidebar .menuItem:hover {
             background-color: #B4BEC9;
+            cursor:pointer;
         }
 
-    .sidebar a {
+    .sidebar .menuItem{
+        border:none;
+        border-bottom: 1px solid #B4BEC9;
+        padding: 10px;
+       
+    }
+
+    .sidebar a{
         color: #002333;
         text-decoration: none;
+        width:250px;
+        text-align:left;
     }
 
 .contentContainer {
@@ -152,31 +169,37 @@ body {
     border: 1px solid silver;
     width: 100%;
 }
+
     .tablo thead tr {
         background-color: #dedede;
     }
+
         .tablo thead tr th {
             padding: 7px;
             margin: 0px;
             color: #002333;
         }
+
     .tablo tbody tr {
-        border:1px solid silver;
+        border: 1px solid silver;
     }
+
         .tablo tbody tr td {
             padding: 7px;
             margin: 0px;
             text-align: center;
             border-bottom: 1px solid silver;
         }
+
             .tablo tbody tr td .duzenle {
                 padding: 3px 7px;
-                background-color:#076089;
+                background-color: #076089;
                 color: white;
                 border-radius: 4px;
                 margin: 7px 1px;
                 text-decoration: none;
             }
+
             .tablo tbody tr td .sil {
                 padding: 3px 17px;
                 background-color: red;
@@ -184,5 +207,5 @@ body {
                 border-radius: 4px;
                 margin: 7px 1px;
                 text-decoration: none;
-                font-weight:900;
+                font-weight: 900;
             }

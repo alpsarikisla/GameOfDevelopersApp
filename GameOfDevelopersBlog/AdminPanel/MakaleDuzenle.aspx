@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminPanel/AdminMaster.Master" AutoEventWireup="true" CodeBehind="MakaleDuzenle.aspx.cs" Inherits="GameOfDevelopersBlog.AdminPanel.MakaleDuzenle" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminPanel/AdminMaster.Master" AutoEventWireup="true" CodeBehind="MakaleDuzenle.aspx.cs" Inherits="GameOfDevelopersBlog.AdminPanel.MakaleDuzenle" ValidateRequest="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -45,7 +45,7 @@
                     <asp:TextBox ID="tb_icerik" TextMode="MultiLine" runat="server" CssClass="inputBox"></asp:TextBox>
                 </div>
                 <div class="row">
-                    <asp:LinkButton ID="lbtn_duzenle" runat="server" Text="Makale Ekle" CssClass="formbutton" OnClick="lbtn_duzenle_Click"></asp:LinkButton>
+                    <asp:LinkButton ID="lbtn_duzenle" runat="server" Text="Makale Düzenle" CssClass="formbutton" OnClick="lbtn_duzenle_Click"></asp:LinkButton>
                 </div>
             </div>
             <div style="clear: both"></div>

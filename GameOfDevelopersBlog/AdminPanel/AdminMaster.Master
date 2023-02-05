@@ -22,36 +22,59 @@
         <div>
             <div class="sidebar Crevasse-1">
                 <a href="Default.aspx">
-                    <div class="menuItem">
+                    <div class="menuItem" style="font-weight: 900">
                         Anasayfa
                     </div>
                 </a>
-                <a href="KategoriListele.aspx">
+                <%--<a href="#">
+                    <div class="menuItem" style="font-weight:900">
+                        Kategori İşlemleri
+                    </div>
+                </a>--%>
+                <a class="dropdown-btn">
                     <div class="menuItem">
-                        Kategori Listele
+                        Kategori İşlemleri
                     </div>
                 </a>
-                <a href="KategoriEkle.aspx">
+
+                <div class="dropdown-container">
+                    <a href="KategoriListele.aspx">
+                        <div class="menuItem" style="padding-left: 25px;">
+                            Kategori Listele
+                        </div>
+                    </a>
+                    <a href="KategoriEkle.aspx">
+                        <div class="menuItem" style="padding-left: 25px;">
+                            Kategori Ekle
+                        </div>
+                    </a>
+
+                </div>
+
+                <a class="dropdown-btn">
                     <div class="menuItem">
-                        Kategori Ekle
+                        Makale İşlemleri
                     </div>
                 </a>
-                <a href="MakaleListele.aspx">
-                    <div class="menuItem">
-                        Makale Listele
-                    </div>
-                </a>
-                <a href="MakaleEkle.aspx">
-                    <div class="menuItem">
-                        Makale Ekle
-                    </div>
-                </a>
-                 <a href="KategoriEkle.aspx">
+                <div class="dropdown-container">
+                    <a href="MakaleListele.aspx">
+                        <div class="menuItem" style="padding-left: 25px;">
+                            Makale Listele
+                        </div>
+                    </a>
+                    <a href="MakaleEkle.aspx">
+                        <div class="menuItem" style="padding-left: 25px;">
+                            Makale Ekle
+                        </div>
+                    </a>
+                </div>
+
+                <a href="YorumListele.aspx">
                     <div class="menuItem">
                         Yorum İşlemleri
                     </div>
                 </a>
-                 <a href="KategoriEkle.aspx">
+                <a href="KategoriEkle.aspx">
                     <div class="menuItem">
                         Üye İşlemleri
                     </div>
@@ -67,6 +90,19 @@
     <script src="Assets/ckeditor/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('ContentPlaceHolder1_tb_icerik');
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        for (i = 0; i < dropdown.length; i++) {
+            dropdown[i].addEventListener("click", function () {
+                var dropdowncontent = this.nextElementSibling;
+                if (dropdowncontent.style.display === "block") {
+                    dropdowncontent.style.display = "none";
+                }
+                else {
+                    dropdowncontent.style.display = "block"
+                }
+            });
+        }
     </script>
 </body>
 </html>
