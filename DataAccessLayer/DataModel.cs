@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Security.Policy;
+using System.Security.Cryptography;
 
 namespace DataAccessLayer
 {
@@ -273,6 +275,91 @@ namespace DataAccessLayer
                 con.Close();
             }
         }
+        public List<Makale> MakaleListele(bool durum)
+        {
+            try
+            {
+                List<Makale> Makaleler = new List<Makale>();
+                cmd.CommandText = "SELECT M.ID, M.Kategori_ID, K.Isim, M.Yonetici_ID, Y.KullaniciAdi, M.Baslik, M.Ozet, M.Icerik, M.Resim, M.GoruntulemeSayisi, M.EklemeTarihi, M.BegeniSayisi, M.Yayinda FROM Makaleler AS M JOIN Kategoriler AS K ON M.Kategori_ID = K.ID JOIN Yoneticiler AS Y ON M.Yonetici_ID = Y.ID WHERE M.Yayinda=@durum";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@durum", durum);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Makale m = new Makale();
+                    m.ID = reader.GetInt32(0);
+                    m.Kategori_ID = reader.GetInt32(1);
+                    m.Kategori = reader.GetString(2);
+                    m.Yonetici_ID = reader.GetInt32(3);
+                    m.Yonetici = reader.GetString(4);
+                    m.Baslik = reader.GetString(5);
+                    m.Ozet = reader.GetString(6);
+                    m.Icerik = reader.GetString(7);
+                    m.Resim = reader.GetString(8);
+                    m.GoruntulemeSayisi = reader.GetInt32(9);
+                    m.EklemeTarih = reader.GetDateTime(10);
+                    m.EklemeTarihStr = reader.GetDateTime(10).ToShortDateString();
+                    m.BegeniSayisi = reader.GetInt32(11);
+                    m.Yayinda = reader.GetBoolean(12);
+                    m.YayindaStr = reader.GetBoolean(12) ? "<label style='color:green'>Aktif</label>" : "<label style='color:gray'>Pasif</label>";
+                    Makaleler.Add(m);
+                }
+                return Makaleler;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public List<Makale> MakaleListele(int kid,bool durum)
+        {
+            try
+            {
+                List<Makale> Makaleler = new List<Makale>();
+                cmd.CommandText = "SELECT M.ID, M.Kategori_ID, K.Isim, M.Yonetici_ID, Y.KullaniciAdi, M.Baslik, M.Ozet, M.Icerik, M.Resim, M.GoruntulemeSayisi, M.EklemeTarihi, M.BegeniSayisi, M.Yayinda FROM Makaleler AS M JOIN Kategoriler AS K ON M.Kategori_ID = K.ID JOIN Yoneticiler AS Y ON M.Yonetici_ID = Y.ID WHERE M.Kategori_ID=@kategori_ID AND M.Yayinda=@durum";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@durum", durum);
+                cmd.Parameters.AddWithValue("@kategori_ID", kid);
+
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Makale m = new Makale();
+                    m.ID = reader.GetInt32(0);
+                    m.Kategori_ID = reader.GetInt32(1);
+                    m.Kategori = reader.GetString(2);
+                    m.Yonetici_ID = reader.GetInt32(3);
+                    m.Yonetici = reader.GetString(4);
+                    m.Baslik = reader.GetString(5);
+                    m.Ozet = reader.GetString(6);
+                    m.Icerik = reader.GetString(7);
+                    m.Resim = reader.GetString(8);
+                    m.GoruntulemeSayisi = reader.GetInt32(9);
+                    m.EklemeTarih = reader.GetDateTime(10);
+                    m.EklemeTarihStr = reader.GetDateTime(10).ToShortDateString();
+                    m.BegeniSayisi = reader.GetInt32(11);
+                    m.Yayinda = reader.GetBoolean(12);
+                    m.YayindaStr = reader.GetBoolean(12) ? "<label style='color:green'>Aktif</label>" : "<label style='color:gray'>Pasif</label>";
+                    Makaleler.Add(m);
+                }
+                return Makaleler;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
         public Makale MakaleGetir(int id)
         {
@@ -370,6 +457,33 @@ namespace DataAccessLayer
             }
         }
 
+        public bool GoruntulemeArttir(int mid)
+        {
+            try
+            {
+                cmd.CommandText = "SELECT GoruntulemeSayisi FROM Makaleler WHERE ID=@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", mid);
+                con.Open();
+                int sayi = Convert.ToInt32(cmd.ExecuteScalar());
+                cmd.CommandText = "UPDATE Makaleler SET GoruntulemeSayisi = @s WHERE ID=@id";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", mid);
+                sayi = sayi + 1;
+                cmd.Parameters.AddWithValue("@s", sayi);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
         #endregion
 
         #region Yorum Metotları
@@ -409,6 +523,147 @@ namespace DataAccessLayer
             {
                 con.Close();
             }
+        }
+
+        public List<Yorum> YorumlariListele(int mid)
+        {
+            List<Yorum> yorumlar = new List<Yorum>();
+            try
+            {
+                cmd.CommandText = "SELECT Y.ID, Y.Makale_ID, M.Baslik, Y.Yonetici_ID, YY.KullaniciAdi, Y.Uye_ID, U.KullaniciAdi, U.Isim +' '+ U.Soyisim, Y.Icerik, Y.Onay FROM Yorumlar AS Y JOIN Makaleler AS M ON Y.Makale_ID = M.ID JOIN Yoneticiler AS YY ON Y.Yonetici_ID = YY.ID JOIN Uyeler AS U ON Y.Uye_ID = U.ID WHERE Y.Makale_ID = @mid";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@mid", mid);
+                con.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    yorumlar.Add(new Yorum()
+                    {
+                        ID = reader.GetInt32(0),
+                        Makale_ID = reader.GetInt32(1),
+                        Makale = reader.GetString(2),
+                        Yonetici_ID = reader.GetInt32(3),
+                        Yonetici = reader.GetString(4),
+                        Uye_ID = reader.GetInt32(5),
+                        Uye = reader.GetString(7) + "(" + reader.GetString(6) + ")",
+                        Icerik = reader.GetString(8),
+                        Onay = reader.GetBoolean(9)
+                    });
+                }
+                return yorumlar;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        #endregion
+
+        #region Uye Metotları
+
+
+
+        public Uye UyeGiris(string kullaniciAdi, string sifre)
+        {
+            //kadi=kullanıciadi
+            try
+            {
+                cmd.CommandText = "SELECT COUNT(*) FROM Uyeler WHERE KullaniciAdi = @kadi AND Sifre = @sifre";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@kadi", kullaniciAdi);
+                cmd.Parameters.AddWithValue("@sifre", sifre);
+                con.Open();
+                int sayi = Convert.ToInt32(cmd.ExecuteScalar());
+
+                if (sayi > 0)
+                {
+                    cmd.CommandText = "SELECT * FROM Uyeler  WHERE KullaniciAdi = @kadi AND Sifre = @sifre";
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@kadi", kullaniciAdi);
+                    cmd.Parameters.AddWithValue("@sifre", sifre);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    Uye u = new Uye();
+                    while (reader.Read())
+                    {
+                        u.ID = reader.GetInt32(0);
+                        u.Isim = reader.GetString(1);
+                        u.Soyisim = reader.GetString(2);
+                        u.KullaniciAdi = reader.GetString(3);
+                        u.Mail = reader.GetString(5);
+                        u.Sifre = reader.GetString(4);
+                        u.Durum = reader.GetBoolean(6);
+                    }
+                    return u;
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch
+            {
+                return null;
+            }
+            finally { con.Close(); }
+        }
+
+        public bool UyeEkle(Uye u)
+        {
+            try
+            {
+                cmd.CommandText = "INSERT INTO Uyeler(Isim,Soyisim,KullaniciAdi,Sifre,Mail,Durum) VALUES (@isim,@soyisim,@kullaniciAdi,@sifre,@mail,@durum)";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@isim", u.Isim);
+                cmd.Parameters.AddWithValue("@soyisim", u.Soyisim);
+                cmd.Parameters.AddWithValue("@kullaniciAdi", u.KullaniciAdi);
+                cmd.Parameters.AddWithValue("@sifre", u.Sifre);
+                cmd.Parameters.AddWithValue("@mail", u.Mail);
+                cmd.Parameters.AddWithValue("@durum", true);
+                con.Open();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            { return false; }
+            finally { con.Close(); }
+        }
+
+        public List<Uye> UyeListele()
+        {
+            List<Uye> uyeler = new List<Uye>();
+            try
+            {
+                cmd.CommandText = "SELECT * FROM Uyeler";
+                cmd.Parameters.Clear();
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Uye u = new Uye()
+                    {
+                        ID = reader.GetInt32(0),
+                        Isim = reader.GetString(1),
+                        Soyisim = reader.GetString(2),
+                        KullaniciAdi = reader.GetString(3),
+                        Mail = reader.GetString(5),
+                        Sifre= reader.GetString(4),
+                        Durum = reader.GetBoolean(6)
+                    };
+                    uyeler.Add(u);
+                }
+                return uyeler;
+               
+            }
+            catch
+            { return null; }
+            finally { con.Close(); }
         }
 
         #endregion

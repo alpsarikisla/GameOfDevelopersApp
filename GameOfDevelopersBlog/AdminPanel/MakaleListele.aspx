@@ -7,7 +7,7 @@
     <div>
         <asp:ListView ID="lv_makaleler" runat="server" OnItemCommand="lv_makaleler_ItemCommand">
             <LayoutTemplate>
-                <table class="tablo" cellpaddind="0" cellspacing="0">
+                <table class="tablo" cellpadding="0" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Resim</th>

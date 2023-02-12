@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="GameOfDevelopersBlog.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Game Of Developers - Blog</title>
+    <link href="assets/css/arayuz.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="tasiyici">
+            <div class="baslik">
+                <a href="Default.aspx">
+                    <img src="assets/SayfaResimleri/god1.jpg" width="150" class="logo" /></a>
+                <div class="alevli">
+                    Game Of Developers
+                </div>
+                <asp:Panel ID="pnl_girisyok" runat="server" CssClass="kullanici">
+                    <a href="KayitOl.aspx">Kayıt Ol</a>
+                    <a href="UyeGiris.aspx" style="margin-left: 15px;">Giriş Yap</a>
+                </asp:Panel>
+                <asp:Panel ID="pnl_girisVar" runat="server" CssClass="kullanici" Visible="false">
+                    <asp:Label ID="lbl_uye" runat="server" style="color:dimgray"></asp:Label>
+                     <asp:LinkButton ID="lbtn_cikis" runat="server" OnClick="lbtn_cikis_Click">Çıkış Yap</asp:LinkButton>
+                </asp:Panel>
+                <div style="clear: both"></div>
+            </div>
+            <div class="kategorimenu">
+                <ul>
+                    <%--  <a href='Default.aspx'>
+                        <li>Tümü</li>
+                    </a>--%>
+                    <asp:Repeater ID="rp_kategoriler" runat="server">
+                        <ItemTemplate>
+                            <a href='Default.aspx?kid=<%# Eval("ID") %>'>
+                                <li><%# Eval("Isim") %></li>
+                            </a>
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                </ul>
+                <div style="clear: both;"></div>
+            </div>
+            <div class="icerik">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <aside class="reklam">
+                <a href="https://www.turhost.com/r/104820/">
+                    <img src="assets/dedicated/160x600.gif" /></a>
+            </aside>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿body {
+}
+
+.kayitForm {
+   margin-top:20px;
+}
+
+    .kayitForm .baslik {
+        padding: 5px;
+        background-color: #f1f1f1;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border:1px solid silver;
+        border-bottom:none;
+    }
+
+    .kayitForm .formicerik {
+        padding: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: 1px solid silver;
+    }
+
+.formicerik table {
+}
+
+    .formicerik table tr {
+    }
+
+        .formicerik table tr td {
+            padding: 5px;
+        }
+.forminput
+{
+    width:650px;
+    padding:10px;
+    border-radius:5px;
+    border:1px solid silver;
+}
+.formbutton
+{
+    text-decoration:none;
+    background-color:lightcoral;
+    color:white;
+    border-radius:3px;
+    padding:10px 310px;
+    float:right;
+    font-weight:900;
+}
+

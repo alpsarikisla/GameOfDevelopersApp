@@ -391,11 +391,26 @@
     <Content Include="AdminPanel\MakaleEkle.aspx" />
     <Content Include="AdminPanel\MakaleListele.aspx" />
     <Content Include="AdminPanel\YorumListele.aspx" />
+    <Content Include="assets\css\arayuz.css" />
+    <Content Include="assets\css\formtasarim.css" />
+    <Content Include="assets\dedicated\120x600.gif" />
+    <Content Include="assets\dedicated\160x600.gif" />
+    <Content Include="assets\dedicated\250x250.gif" />
+    <Content Include="assets\dedicated\300x250.gif" />
+    <Content Include="assets\dedicated\336x280.gif" />
+    <Content Include="assets\dedicated\468x60.gif" />
+    <Content Include="assets\dedicated\728x90.gif" />
+    <Content Include="assets\SayfaResimleri\2853458.jpg" />
+    <Content Include="assets\SayfaResimleri\god1.jpg" />
+    <Content Include="Default.aspx" />
+    <Content Include="KayitOl.aspx" />
+    <Content Include="MakaleOku.aspx" />
     <Content Include="MakaleResimleri\242d11b4-334a-4c32-bd9b-2d49f8734d46.jpg" />
     <Content Include="MakaleResimleri\352cc984-0fb0-4e13-9406-7b3b82ce97c8.jpg" />
     <Content Include="MakaleResimleri\67f1c553-bfd9-4929-9ffe-4b71f9e5b45d.jpg" />
     <Content Include="MakaleResimleri\eb574331-5f9f-43b0-a65f-360e7920f3bb.jpg" />
     <Content Include="MakaleResimleri\none.png" />
+    <Content Include="UyeGiris.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -470,7 +485,42 @@
     <Compile Include="AdminPanel\YorumListele.aspx.designer.cs">
       <DependentUpon>YorumListele.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KayitOl.aspx.cs">
+      <DependentUpon>KayitOl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KayitOl.aspx.designer.cs">
+      <DependentUpon>KayitOl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MakaleOku.aspx.cs">
+      <DependentUpon>MakaleOku.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MakaleOku.aspx.designer.cs">
+      <DependentUpon>MakaleOku.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UyeGiris.aspx.cs">
+      <DependentUpon>UyeGiris.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UyeGiris.aspx.designer.cs">
+      <DependentUpon>UyeGiris.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPanel\AdminMaster.Master" />
@@ -490,6 +540,7 @@
     <Content Include="AdminPanel\Assets\ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="AdminPanel\Assets\ckeditor\SECURITY.md" />
     <Content Include="AdminPanel\Assets\ckeditor\skins\moono-lisa\readme.md" />
+    <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

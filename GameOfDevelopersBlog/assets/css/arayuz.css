@@ -1,0 +1,138 @@
+﻿*,h1,h2,h3,h4,h5,h6
+{
+    margin:0;padding:0;
+}
+body {
+    font-family:Calibri;
+    color:dimgray;
+}
+.gecici{
+    border:1px solid silver;
+}
+.tasiyici
+{
+    width:1200px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.logo
+{
+    float:left;
+}
+.alevli {
+    width: 800px;
+    float: left;
+    text-align: center;
+    margin-top:15px;
+    font-size: 20pt;
+    font-family: 'Press Start 2P', cursive;
+}
+.kullanici {
+    float: right;
+    width: 250px;
+    margin-top: 15px;
+}
+.kullanici a
+{
+    text-decoration:none;
+    color:dimgray;
+}
+    .kullanici a:hover{
+        text-decoration:underline;
+    }
+.kategorimenu {
+    border-top: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+   
+}
+    .kategorimenu ul
+    {
+        list-style-type:none;
+    }
+    .kategorimenu a {
+        text-decoration: none;
+        color: dimgray;
+        font-weight: 900;
+    }
+    .kategorimenu a li {
+        padding:15px;
+        float:left;
+    }
+.icerik
+{
+    width:1000px;
+    float:left;
+    padding-right:40px;
+}
+.reklam {
+    width:160px;
+    float: right;
+}
+.makale
+{
+    margin-top:30px;
+}
+.imdat {
+    background-color: #FEDB8B !important;
+}
+    .makale .baslik {
+        color: white;
+        background-color: pink;
+    }
+.bilgi {
+    padding: 10px 0;
+    border-top: 1px solid #ededed;
+    border-bottom: 1px solid #ededed;
+    margin-bottom:10px;
+}
+.resim {
+    float: left;
+    width: 300px;
+}
+.resim img {
+    width: 300px;
+}
+.ozet {
+    float: right;
+    width: 680px;
+    padding:10px 0;
+}
+.yorumPanel
+{
+    padding-top:20px;
+}
+.yorum
+{
+    border:1px solid silver;
+    padding:15px;
+    margin:10px 0;
+}
+.girisyok
+{
+    padding:20px;
+    color:orangered;
+    border:1px solid red;
+}
+.girisyok a
+{
+    color:darkred;
+    text-decoration:none;
+}
+    .girisyok a:hover {
+        color: darkred;
+        text-decoration: underline;
+    }
+.girisvar {
+    padding: 20px;
+    border: 1px solid teal;
+}
+    .girisvar .forminput
+    {
+        margin-bottom:10px;
+        width:97%;
+    }
+    .girisvar .formbutton {
+        margin-top: 10px;
+        float:none !important;
+        padding:10px 20px !important;
+    }

@@ -6,7 +6,7 @@
     <div>
         <asp:ListView ID="lv_yorumlar" runat="server">
             <LayoutTemplate>
-                <table class="tablo" cellpaddind="0" cellspacing="0">
+                <table class="tablo" cellpadding="0" cellspacing="0">
                     <thead>
                         <tr>
                             <th>ID</th>
